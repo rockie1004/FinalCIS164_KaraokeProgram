@@ -152,6 +152,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="KaraokeSongs.cpp" />
+    <ClCompile Include="Song.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Artist.h" />
+    <ClInclude Include="Song.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
