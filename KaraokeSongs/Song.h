@@ -4,7 +4,6 @@
 using namespace std;
 class Song
 {
-	int songKey = 0;
 	std::string title;
 	Artist artist;
 

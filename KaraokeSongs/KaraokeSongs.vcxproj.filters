@@ -29,5 +29,11 @@
     <ClInclude Include="Artist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FileManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

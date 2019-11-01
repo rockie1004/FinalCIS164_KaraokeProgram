@@ -6,4 +6,4 @@ void Song::setArtist(Artist newArtist) { artist = newArtist; };
 int Song::getSongKey() { return songKey; };
 string Song::getTitle() { return title; };
 Artist Song::getArtist() { return artist; };
-string Song::display() { return title + " " + "dummyArtist"; }
+string Song::display() { return title + " by " + "dummyArtist"; }

@@ -156,7 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artist.h" />
+    <ClInclude Include="MapManagement.h" />
     <ClInclude Include="Song.h" />
+    <ClInclude Include="FileManagement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
