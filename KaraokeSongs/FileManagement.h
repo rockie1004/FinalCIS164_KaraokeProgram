@@ -1,6 +1,4 @@
 #pragma once
-#ifndef USEFULTHINGS_H
-#define USEFULTHINGS_H
 
 #include <string>
 #include <iostream>
