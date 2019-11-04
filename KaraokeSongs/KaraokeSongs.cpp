@@ -2,14 +2,30 @@
 //
 
 #include <iostream>
+#include "Song.h"
+#include "MapManagement.h"
+#include "FileManagement.h"
+#include <map>
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
-	std::cout << "It's gonna work this time!\n";
+	Artist dummyArtist = Artist();//dummy artist
+	map<int, Song> songCatalog;
+	string name = "";
+	while (name != "X") {
+		cout << "Enter song name or X to quit\n";
+		getline(cin, name);
+		Song newSong = Song(name, dummyArtist);
+		if (name == "X") { cout << "Done\n"; }
+		else if (addObjectToMap(songCatalog, newSong)) { cout << "Added to map\n"; }
+		else { cout << "Error\n"; };
+	}
 
-	std::cout << "I think it did!\n";
-}
+	cout << "For Testing, display contents of map \n";
+		displayMap(songCatalog);
+
+	};
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
