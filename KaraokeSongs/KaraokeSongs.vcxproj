@@ -160,6 +160,9 @@
     <ClInclude Include="Song.h" />
     <ClInclude Include="FileManagement.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Artist.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
