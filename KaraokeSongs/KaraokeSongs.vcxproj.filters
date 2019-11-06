@@ -40,5 +40,11 @@
     <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Artist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Band.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\IndividualArtist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
