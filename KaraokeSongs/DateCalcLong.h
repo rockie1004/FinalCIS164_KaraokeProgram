@@ -8,7 +8,6 @@
 using namespace std;
 ////global
 
-
 void days();
 struct tm* setDate(int, int, int);
 struct tm* setDate(int, int, int, time_t&);
@@ -39,57 +38,36 @@ struct tm* setDate(int year, int month, int day, time_t& storeTime) {
 	return timeinfo;
 };
 
-tm* addDays(tm* startingDate, int addDays) {
-	tm* newDate = startingDate;
-	newDate->tm_mday += addDays;
-	mktime(newDate);
-	return newDate;
+void addDays(tm* timeinfo, int addDays) {
+	timeinfo->tm_mday += addDays;
+	mktime(timeinfo);
 };
 
-//returns date as a string
-std::string displayDate(tm* dateStruct) {
-	char    time_buf[256];
-	strftime(time_buf, sizeof(time_buf),
-		"%D", dateStruct);
-	return time_buf;
-};
-string dateToKey(tm* dateStruct) {
-	char    time_buf[256];
-	strftime(time_buf, sizeof(time_buf),
-		"%F", dateStruct);
-	return time_buf;
-};
+std::string displayDate(const tm* const timeinfo) {
+	int day = timeinfo->tm_mday;
+	int month = timeinfo->tm_mon + 1;
+	int year = timeinfo->tm_year + 1900;
 
-//Promput user for the components of a date, enforce ranges
-tm* userInputDate() {
-	const int MIN_YEAR = 1980;
-	const int MAX_YEAR = 2300;
-	const int MIN_MONTH = 1;
-	const int MAX_MONTH = 12;
-	const int MIN_DAY = 1;
-	int max_day = 31;
-	int month, day, year = 0;
-month=	getInputReprompt("Enter the month:", MIN_MONTH, MAX_MONTH);
-switch (month) {
-case 1: max_day = 31; break;
-case 2: max_day = 29; break;
-case 3: max_day = 31; break;
-case 4: max_day = 30; break;
-case 5: max_day = 31; break;
-case 6: max_day = 30; break;
-case 7: max_day = 31; break;
-case 8: max_day = 31; break;
-case 9: max_day = 30; break;
-case 10: max_day = 31; break;
-case 11: max_day = 30; break;
-case 12: max_day = 31; break;
-default:cout << "Error, max day set to 31."; break;
+	std::string dateString = (std::to_string(month) + "-" + std::to_string(day) + "-" + std::to_string(year));
+	return dateString;
 }
-day=	getInputReprompt("Enter the day:", MIN_DAY, max_day);
-year=	getInputReprompt("Enter the year:", MIN_YEAR,MAX_YEAR);
+tm* userInputDate() {
+	int month, day, year = 0;
+day=	getInputReprompt("Enter the month:", 1, 12);
+month=	getInputReprompt("Enter the day:", 1, 31);
+year=	getInputReprompt("Enter the year:", 1900, 3000);
+
 	return setDate(year, month, day);
 }
 
+tm* userInputDate(time_t& date_t) {
+	int month, day, year = 0;
+	day = getInputReprompt("Enter the month:", 1, 12);
+	month = getInputReprompt("Enter the day:", 1, 31);
+	year = getInputReprompt("Enter the year:", 1900, 3000);
+
+	return setDate(year, month, day, date_t);
+}
 
 /*Amy's input validating function for integer within a range. Continues reprompting until input is acceptable.
 int getInputReprompt(std::string, int, int);
@@ -121,7 +99,7 @@ int getInputReprompt(std::string promptMessage, int minRange, int maxRange) {
 }
 
 /*Amy's input validating function for double over the min. Continues reprompting until input is acceptable.
-int getInputReprompt(std::string, double);
+int getInputReprompt(std::string, double, double);
 */
 double getInputReprompt(std::string promptMessage, double minRange) {
 	double input;
@@ -152,9 +130,8 @@ double getInputReprompt(std::string promptMessage, double minRange) {
 
 
 
-/////////////////////////////////////////
-///for testing or not sure if needed........
-///////////////////////////////////////////
+
+///for testing 
 
 void days()
 {
@@ -184,13 +161,3 @@ void days()
 	std::cout << displayDate(timeinfo);
 
 }
-/*may not be needed if not using time_t as a key in any map...
-tm* userInputDate(time_t& date_t) {
-	int month, day, year = 0;
-	day = getInputReprompt("Enter the month:", 1, 12);
-	month = getInputReprompt("Enter the day:", 1, 31);
-	year = getInputReprompt("Enter the year:", 1900, 3000);
-
-	return setDate(year, month, day, date_t);
-}
-*/

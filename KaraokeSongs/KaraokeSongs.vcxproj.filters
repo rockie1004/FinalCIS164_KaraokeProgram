@@ -18,6 +18,9 @@
     <ClCompile Include="KaraokeSongs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CatalogEntry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Song.h">
@@ -50,10 +53,11 @@
     <ClInclude Include="CatalogEntry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Songs.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Band.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\IndividualArtist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
