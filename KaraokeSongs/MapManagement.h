@@ -1,8 +1,9 @@
 #pragma once
 #include <map>
 #include <iterator>
-
 const int STARTING_KEY = 100;
+
+
 //use with any ordered map that has int as the key, will return next higher int that is available to use as a new key
 //adapted from https://stackoverflow.com/questions/1660195/c-how-to-find-the-biggest-key-in-a-stdmap
 //use crbegin to get pointer to last element which will have highest key http://www.cplusplus.com/reference/map/map/crbegin/

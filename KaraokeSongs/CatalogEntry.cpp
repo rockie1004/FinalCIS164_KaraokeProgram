@@ -1,0 +1,1 @@
+#include "CatalogEntry.h"
