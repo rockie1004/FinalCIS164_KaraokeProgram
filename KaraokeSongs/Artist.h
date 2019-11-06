@@ -15,8 +15,9 @@ using namespace std;
 class Artist
 {
 protected:
-	int id; //holds the identifier for the artist
-	string name; //holds the name of the artist
+	//int id; //holds the identifier for the artist
+	string alphaName; //holds the artist' name alphabetically
+	string displayName; //holds the name of the artist
 	Genre primaryGenre; //holds the primary genre for the artist
 public:
 	//default constructor
