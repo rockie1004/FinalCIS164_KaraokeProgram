@@ -151,19 +151,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CatalogEntry.cpp" />
     <ClCompile Include="KaraokeSongs.cpp" />
-    <ClCompile Include="Song.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artist.h" />
+    <ClInclude Include="Band.h" />
+    <ClInclude Include="CatalogEntry.h" />
+    <ClInclude Include="DateCalcLong.h" />
+    <ClInclude Include="Genre.h" />
+    <ClInclude Include="IndividualArtist.h" />
     <ClInclude Include="MapManagement.h" />
+    <ClInclude Include="maps.h" />
     <ClInclude Include="Song.h" />
     <ClInclude Include="FileManagement.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Artist.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Band.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\IndividualArtist.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
