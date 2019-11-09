@@ -16,20 +16,29 @@ int main()
 	
 	string artistKey = "dummyArtist";
 
+	primaryMapFromFile(songMap, songFstream);
+	cout << "\nFor Testing, display contents of map from what was in the file on startup\n";
+	displayMap(songMap);
 
-	Song s = Song("manual input", artistKey);
+	cout << "\nNow add some more songs (we are only collecting title, not artist, for this test).\n";
 	for (int i = 0; i < 5; i++) {
 		Song tempSong = userInputSong(artistKey);
 		if (addSongToCatalogs(tempSong)) { cout << "Added to map\n"; }
 		else { cout << "Error\n"; };
 	}
+	cout << "Check contents of songMap:\n";
+	displayMap(songMap);
+	cout << "Write contents of songMap to File:\n";
+	primaryMapToFile(songMap, songFstream);
 
-	
-	//not ready...WriteMapToFile(songMap, songFstream);
+	cout << "Now Reading file into a blank map and displaying that map to ensure that reading worked. You will only see contents below if they were read from the file and inserted into a map correctly\n";
+
+	map<string, Song> testMap; //using a different map to test read since all the items are in
+	primaryMapFromFile(testMap, songFstream);
 
 
 	cout << "For Testing, display contents of map \n";
-		displayMap(songMap);
+		displayMap(testMap);
 	//	//displayMap(songCatalogByArtist);
 
 	};

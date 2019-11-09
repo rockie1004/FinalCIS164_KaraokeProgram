@@ -55,8 +55,5 @@
     <Text Include="Songs.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Testing.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
   </ItemGroup>
 </Project>
