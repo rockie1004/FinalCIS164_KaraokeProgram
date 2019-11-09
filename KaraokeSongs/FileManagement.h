@@ -7,6 +7,7 @@
 #include <exception>
 #include <iomanip>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
@@ -15,12 +16,12 @@ char getInputReprompt(std::string, char, char);
 int getInputReprompt(std::string, int, int);
 
 //file handling variables
-const char FIELD_DELIMITER = '$';
-const char ELEMENT_DELIMITER = '|';
+const char FIELD_DELIMITER = '$'; //use this to separate fields
+const char ELEMENT_DELIMITER = '|';//use this to separate elements in an array or vector (with the field delimiter surrounding the entire array or vector
 
 //file handling functions/
 vector<string> ReadLineByID(fstream&, string);//can find any substring, not just ID
-vector<string> SeparateLineByDelimiter(string);
+vector<string> SeparateLineByDelimiter(string, char);
 void GoBeginningOfFile(fstream& inputReader);
 
 
@@ -37,11 +38,11 @@ void GoBeginningOfFile(fstream& inputReader) {
 
 //turns a string line with delimiter into individual strings, stored in a vector. //Amy
 //adapted from http://www.martinbroadhurst.com/how-to-split-a-string-in-c.html
-vector<string> SeparateLineByDelimiter(string line) {
+vector<string> SeparateLineByDelimiter(string line, char delimiter) {
 	vector<string> inputFields;
 	std::stringstream ss(line);
 	std::string nextField;
-	while (std::getline(ss, nextField, FIELD_DELIMITER)) {
+	while (std::getline(ss, nextField, delimiter)) {
 		inputFields.push_back(nextField);
 	}
 	return inputFields;
