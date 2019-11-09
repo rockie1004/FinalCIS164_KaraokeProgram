@@ -2,6 +2,7 @@
 #include "Artist.h"
 #include "Song.h"
 #include "MapManagement.h"
+#include "maps.h"
 #include <iostream>
 #include <map>
 using namespace std;
@@ -21,10 +22,10 @@ using namespace std;
 	{
 		for (auto& e : myMap) 
 		{
-			myFstream << e.first << FIELD_DELIMITER << e.second.toFile() << FIELD_DELIMITER << endl;//put key and class output all on a line with field delimiter between key and value
+				myFstream << e.first << FIELD_DELIMITER << e.second.toFile() << FIELD_DELIMITER << endl;//put key and class output all on a line with field delimiter between key and value
 		}
 		cout << "\nDone writing map to file.\n";
-
+		GoBeginningOfFile(myFstream);
 	};
 	template<typename T> void primaryMapFromFile(map<string, T>& myMap, fstream& inputFile)
 	{
@@ -45,11 +46,14 @@ using namespace std;
 				T tempObject = T();
 				iter++;//iterator now points to the first class field that is saved as a string in the vector
 				tempObject.fromFile(iter);//pass iterator to class's FromFile() to update the class fields of the object (it will be different for each class)
-				bool check = myMap.emplace(make_pair(*iter, tempObject)); //add to map
+				bool check = myMap.emplace(make_pair(*iter, tempObject)).second; //add to map; .second collects the bool portion of what emplace returns
 				cout << "\nAdded " << tempKey << " to map.\n";
 			}
-			cout << "\nDone reading map from file.\n";
+			
 		}
+		cout << "\nDone reading map from file.\n";
+		GoBeginningOfFile(inputFile);
+
 	};
 /////////SECONDARY Multimaps////////////////////
 /////////save only keys to file, all the map functions like find and emplace only return iterators which are not useful to save. Lookups will be needed to use the contents of these maps
