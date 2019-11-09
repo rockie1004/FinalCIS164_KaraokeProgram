@@ -2,41 +2,31 @@
 #include <map>
 #include <iterator>
 
-template <typename T>  bool addObjectToMap(multimap<string, T>& , T , string );
-template <typename T>  bool addObjectToMap(map<string, T>& , T );
-//use with any ordered map that has string as the key, for testing only - replace with save to file
+//template <typename T>  bool addObjectToMap(typename map<string, T>& , T );
 template <typename T>  void displayMap(map<string, T>& );
 template <typename T> bool SelectByKey(map<string, T> , string , T* );
 template <typename T> bool UserInputSelectByKey(map<string, T> , string , T* );
 
+template <typename T>  void WriteMapToFile(map<string, T>&, fstream& file);
+template <typename T>  void ReadMapFromFile(map<string, T>&, fstream& file);
 
 
 
-
-
-
-
-
-
-
-//use with any multimap that has string as the key
-//http://www.cplusplus.com/reference/map/map/emplace/ returns the bool that emplace returns (second part of pair that emplace returns)
-template <typename T>  bool addObjectToMap(typename multimap<string, T>& existingMap, T newObject, string newKey)
-{
-	bool successfulInsert = existingMap.emplace(newKey, newObject).second;//the .second used here gets the bool portion of the pair that emplace returns. It would be nice to collect the iterator that it also returns but I couldn't figure out how...
-	return successfulInsert;
-};
 
 
 //use with any ordered map that has string as the key and an object of a class that has a key field, and updateKey() and getKey() functions in the class.
 //http://www.cplusplus.com/reference/map/map/emplace/ returns the bool that emplace returns (second part of pair that emplace returns)
-template <typename T>  bool addObjectToMap(typename map<string, T>& existingMap, T newObject)
+template <typename T>  bool addObjectToMap(typename map<string, T>& existingMap, T& newObject)
 {
-	newObject.updateKey();//ensures that the key field in the object has most current data
+	newObject.updateKey();//ensures that the key field in the object has most current data ---NEED?
 	string newKey = newObject.getKey(); //uses the key field in the object as the key for the map
-	bool successfulInsert = existingMap.emplace(newKey, newObject).second;//the .second used here gets the bool portion of the pair that emplace returns. It would be nice to collect the iterator that it also returns but I couldn't figure out how...
-	return successfulInsert;
+									
+	//this shows the results of emplace, which is a pair that conaitns a pointer to the value in the map (accessed by .first) and a bool (the .second) about whehter successful insert
+	return existingMap.emplace(newKey, newObject).second;
+
 };
+	
+	 
 
 
 //use with any ordered map that has string as the key, for testing only - replace with save to file
