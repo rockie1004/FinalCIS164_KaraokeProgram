@@ -7,8 +7,6 @@ template <typename T>  void displayMap(map<string, T>& );
 template <typename T> bool SelectByKey(map<string, T> , string , T* );
 template <typename T> bool UserInputSelectByKey(map<string, T> , string , T* );
 
-template <typename T>  void WriteMapToFile(map<string, T>&, fstream& file);
-template <typename T>  void ReadMapFromFile(map<string, T>&, fstream& file);
 
 
 
