@@ -13,7 +13,7 @@
 using namespace std;
 
 class Artist
-{
+{/*
 protected:
 	//int id; //holds the identifier for the artist
 	string alphaName; //holds the artist' name alphabetically
@@ -42,7 +42,7 @@ public:
 	const int getID() const				{ return id; }
 	const string getName() const		{ return name; }
 	const Genre getPrimaryGenre() const { return primaryGenre; }
-
+*/
 };
 
 

@@ -5,25 +5,26 @@
 #include "Song.h"
 #include "MapManagement.h"
 #include "FileManagement.h"
+#include "CatalogEntry.h"
+#include "maps.h"
 #include <map>
 
 
 int main()
 {
-	Artist dummyArtist = Artist();//dummy artist
-	map<int, Song> songCatalog;
-	string name = "";
-	while (name != "X") {
-		cout << "Enter song name or X to quit\n";
-		getline(cin, name);
-		Song newSong = Song(name, dummyArtist);
-		if (name == "X") { cout << "Done\n"; }
-		else if (addObjectToMap(songCatalog, newSong)) { cout << "Added to map\n"; }
+	string artistKey = "dummyArtist";
+
+
+	Song s = Song("manual input", artistKey);
+	for (int i = 0; i < 5; i++) {
+		Song tempSong = userInputSong(artistKey);
+		if (addSongToCatalogs(tempSong, artistKey)) { cout << "Added to map\n"; }
 		else { cout << "Error\n"; };
 	}
 
 	cout << "For Testing, display contents of map \n";
-		displayMap(songCatalog);
+		displayMap(songCatalogBySong);
+		//displayMap(songCatalogByArtist);
 
 	};
 
