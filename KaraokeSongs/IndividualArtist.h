@@ -14,7 +14,7 @@ using namespace std;
 
 class IndividualArtist : public Artist
 {
-private:
+/*private:
 	string currentSideProject; //holds the band the artist is involved in, currently, if applicable
 public:
 	//default constructor, which is also used if the artist isn't currently involved in a project
@@ -26,7 +26,7 @@ public:
 	IndividualArtist(string s) : Artist(s) { currentSideProject = s; } //double check this...is it n or " "??
 
 	//mutator (setters)
-	void setCurrentSideProject(string s) { leadSinger = s; }
+	void setCurrentSideProject(string s) { leadSinger = s; }*/
 
 };
 

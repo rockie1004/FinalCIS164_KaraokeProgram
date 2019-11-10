@@ -14,7 +14,7 @@ using namespace std;
 
 class Band : public Artist
 {
-private:
+/*private:
 	string leadSinger; //holds the current lead singer for the band
 	//thoughts on discography? We could maybe do a friend class, or another smaller class that could hold all the albums?
 public:
@@ -27,7 +27,7 @@ public:
 	Band(string n) : Artist(n) { leadSinger = n; } //double check this...is it n or " "??
 
 	//mutator (setters)
-	void setLeadSinger(string n) { leadSinger = n; }
+	void setLeadSinger(string n) { leadSinger = n; }*/
 
 };
 
