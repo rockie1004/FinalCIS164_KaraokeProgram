@@ -2,11 +2,11 @@
 #include <map>
 #include <iterator>
 
-//template <typename T>  bool addObjectToMap(typename map<string, T>& , T );
 template <typename T>  void displayMap(map<string, T>& );
 template <typename T> bool SelectByKey(map<string, T> , string , T* );
 template <typename T> bool UserInputSelectByKey(map<string, T> , string , T* );
-
+template <typename T>  bool addObjectToMap(typename map<string, T>&, T&);
+void addObjectToMap(typename multimap<string, string>&, string , string );
 
 
 
@@ -24,6 +24,15 @@ template <typename T>  bool addObjectToMap(typename map<string, T>& existingMap,
 
 };
 	
+//use with any ordered map that has string as the key and an object of a class that has a key field, and updateKey() and getKey() functions in the class.
+//http://www.cplusplus.com/reference/map/map/emplace/ returns the bool that emplace returns (second part of pair that emplace returns)
+ void addObjectToMap(typename multimap<string, string>& existingMap, string newKey, string newValue)
+{
+	
+	//this shows the results of emplace, which is a pair that conaitns a pointer to the value in the map (accessed by .first) and a bool (the .second) about whehter successful insert
+	 existingMap.emplace(newKey, newValue);
+
+};
 	 
 
 
@@ -37,7 +46,7 @@ template <typename T>  void displayMap(map<string, T>& existingMap) {
 template <typename T>  void displayMap(multimap<string, T>& existingMap) {
 
 	for (auto& element : existingMap) {
-		cout << "Key:" << to_string(element.first) << " Object: " << element.second.display() << endl;
+		cout << "Key:" << element.first << " Object: " << element.second << endl;
 	}
 };
 
