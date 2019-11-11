@@ -18,9 +18,6 @@
     <ClCompile Include="KaraokeSongs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Song.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Song.h">
@@ -35,16 +32,28 @@
     <ClInclude Include="MapManagement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Band.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DateCalcLong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Genre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IndividualArtist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="maps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogEntry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Artist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\Band.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mysti%27s PC\source\repos\rockie1004\FinalCIS164_KaraokeProgram\KaraokeSongs\IndividualArtist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <Text Include="Songs.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

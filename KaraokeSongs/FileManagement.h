@@ -7,6 +7,7 @@
 #include <exception>
 #include <iomanip>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
@@ -15,12 +16,12 @@ char getInputReprompt(std::string, char, char);
 int getInputReprompt(std::string, int, int);
 
 //file handling variables
-const char FIELD_DELIMITER = '$';
-const char ELEMENT_DELIMITER = '|';
+const char FIELD_DELIMITER = '$'; //use this to separate fields
+const char ELEMENT_DELIMITER = '|';//use this to separate elements in an array or vector (with the field delimiter surrounding the entire array or vector
 
 //file handling functions/
 vector<string> ReadLineByID(fstream&, string);//can find any substring, not just ID
-vector<string> SeparateLineByDelimiter(string);
+vector<string> SeparateLineByDelimiter(string, char);
 void GoBeginningOfFile(fstream& inputReader);
 
 
@@ -37,11 +38,11 @@ void GoBeginningOfFile(fstream& inputReader) {
 
 //turns a string line with delimiter into individual strings, stored in a vector. //Amy
 //adapted from http://www.martinbroadhurst.com/how-to-split-a-string-in-c.html
-vector<string> SeparateLineByDelimiter(string line) {
+vector<string> SeparateLineByDelimiter(string line, char delimiter) {
 	vector<string> inputFields;
 	std::stringstream ss(line);
 	std::string nextField;
-	while (std::getline(ss, nextField, FIELD_DELIMITER)) {
+	while (std::getline(ss, nextField, delimiter)) {
 		inputFields.push_back(nextField);
 	}
 	return inputFields;
@@ -162,4 +163,71 @@ GoBeginningOfFile(inputFile);//sets to start of file
 
 	return allObjectVector;
 }
+
+
+
+
+template <typename T> void MenuObjectSelectFromFile(fstream& inputFile, T& storeObject, string className, const int BLANK_ID)
+{
+	////menu management
+	string sectionTitle = "";//gives a header to next menu section so it is easier to read
+	string sectionPrompt = "";//defines the prompt with options for this section
+	int menuSelected = -1; //stores the user input
+
+	string searchString;
+	int storeLineNum;
+	string storeLine;
+	bool isKeepLooking = true;
+	cout << "Enter the ID or text that you would like to search for.";
+	cin >> searchString;
+	GoBeginningOfFile(inputFile);
+	do {
+		try {
+			if (FindStringInFile(inputFile, searchString, storeLine, storeLineNum)) //returns true if found
+			{
+				storeObject = T(SeparateLineByDelimiter(storeLine));//uses the object constructor that takes vector of strings.
+
+				sectionTitle = "\n----Select This "+className+"---\n " + storeObject.display() + "\n";
+				enum ConfirmMenu { CANCEL, SELECT, AGAIN };
+				sectionPrompt = sectionTitle + "\n  0:Cancel, go back without selection\n  1:Confirm, select this \n  2: Keep looking, see next match \nSelect an option: "; //define the prompt string.
+				menuSelected = getInputReprompt(sectionPrompt, CANCEL, AGAIN); //get input within menu option range.
+
+				switch (menuSelected) {
+				case CANCEL:
+					GoBeginningOfFile(inputFile);//reset file to beginning
+					storeObject = T(BLANK_ID);
+					return;
+					break;
+				case SELECT:
+					GoBeginningOfFile(inputFile);//reset file to beginning
+					return; //value is stored in the storeObject that was given as parameter
+					break;
+				case AGAIN:
+					isKeepLooking = true;
+					break;
+				default:
+					cerr << "Error in select object\n";
+					GoBeginningOfFile(inputFile);//reset file to beginning
+					storeObject = T(BLANK_ID);
+					return;
+					break;
+				}
+			}//end if
+			else {
+				"That was not found.\n";
+				GoBeginningOfFile(inputFile);//reset file to beginning
+				storeObject = T(BLANK_ID);
+				return;
+			}
+		}
+		catch (...)
+		{
+			cout << "That was not found";
+			GoBeginningOfFile(inputFile);//reset file to beginning
+			storeObject = T(BLANK_ID);
+			return;
+		}
+	} while (isKeepLooking);
+};
+
 */
