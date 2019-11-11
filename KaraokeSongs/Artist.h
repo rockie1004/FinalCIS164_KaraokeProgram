@@ -7,44 +7,108 @@
 #pragma once
 #ifndef ARTIST_H
 #define ARTIST_H
+
 #include <string>
 #include "Genre.h"
+#include "CatalogEntry.h"
+#include "FileManagement.h"
+#include <map>
 
 using namespace std;
 
-class Artist
+class Artist : public CatalogEntry
 {
-protected:
-	//int id; //holds the identifier for the artist
+private:
+	//int id; holds the identifier for the artist
 	string alphaName; //holds the artist' name alphabetically
 	string displayName; //holds the name of the artist
 	Genre primaryGenre; //holds the primary genre for the artist
 public:
 	//default constructor
-	Artist()
-	{
-		id = "";
-		name = "";
-		primaryGenre = "";
-	}
+	Artist() : CatalogEntry() {}
+
 	//constructor
-	Artist(int i, string n, Genre g)	{ set(i, n, g); }
-	
-	//set function, to set the attribute data
-	void set(int i, string n, Genre g)
-	{
-		id = i; //assign the id
-		name = n; //assign the name
-		primaryGenre = g; //assign the genre
+	Artist(string an, string dn, Genre g) : CatalogEntry()
+	{	
+		alphaName = an;
+		displayName = dn;
+		primaryGenre = g;
 	}
 
-	//accessors (getters)
-	const int getID() const				{ return id; }
-	const string getName() const		{ return name; }
-	const Genre getPrimaryGenre() const { return primaryGenre; }
+	//constructor where there's only an alphabetical name (for example, Prince)
+	Artist(string an, Genre g) : CatalogEntry()
+	{
+		alphaName = an;
+		displayName = alphaName; //sets the alphaName to the displayName
+		primaryGenre = g;
+	}
 
+	//constructor that allows for setup without a Genre, when it's not known
+	Artist(string an, string dn) : CatalogEntry()
+	{
+		alphaName = an;
+		displayName = dn; 
+		//primaryGenre = g;
+	}
+
+	//constructor where there's only an alphabetical name (for example, Prince)
+	//and no genre selected
+	Artist(string an) : CatalogEntry()
+	{
+		alphaName = an;
+		displayName = alphaName; //sets the alphaName to the displayName
+	}
+	
+	//setters/mutators
+	void setAlphaName(string an);		//{ alphaName = an; }
+	void setDisplayName(string dn);	//{ displayName = dn; }
+	void setGenre(Genre g);	//{ primaryGenre = g; }
+										//
+	//accessors (getters)				//
+	string getAlphaName(); /*const*/		//{ return alphaName; }
+	string getDisplayName(); /*const*/	//{ return displayName; }
+		Genre getPrimaryGenre(); /*const*/	//{ return primaryGenre; }
+
+	virtual string display(); //from CatalogEntry.h
+	virtual string toFile(); //from CatalogEntry.h
+	virtual void fromFile(vector<string>::iterator iter); //from CatalogEntry.h
+	virtual string getKey(); //from CatalogEntry.h
+	virtual void updateKey(); //from CatalogEntry.h
 };
-
-
-
 #endif ARTIST_H
+
+
+//Class Implementation
+
+void Artist::setAlphaName(string an)	{ alphaName = an; };
+void Artist::setDisplayName(string dn)	{ displayName = dn; };
+
+string Artist::getAlphaName()			{ return alphaName; };
+string Artist::getDisplayName()			{ return displayName; };
+Genre Artist::getPrimaryGenre()			{ return primaryGenre; };
+
+void Artist::updateKey()
+{
+	cout << "pending functionality stub";
+}
+
+string Artist::display()
+{
+	return "Artist: " + displayName;
+}
+
+string Artist::toFile()
+{
+	return alphaName + FIELD_DELIMITER; //not sure if we're using the same delimiter for all?
+}
+
+void Artist::fromFile(std::vector<string>::iterator iter)
+{
+	alphaName = *iter;
+	//I think this is all we need here, but lets chat, I want to make sure
+}
+
+string Artist::getKey() {
+	return alphaName;
+
+}
