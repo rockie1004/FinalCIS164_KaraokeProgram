@@ -8,7 +8,7 @@ using namespace std;
 ////////PRIMARY Map///////////////////////
 ///////ENTRIES ARE UNIQUE AND FULL OBJECT MUST BE SAVED TO FILE
 
-	//map<string, Artist> artistMap; move this all to the Artist.h
+	//map<string, Artist> artistMap; move this all to the Artist.h to merge all together
 	string artistFileTXT = "Artists.txt";
 	fstream artistFstream;// (artistFileTXT, ios::in | ios::out);
 
