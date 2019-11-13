@@ -10,7 +10,7 @@
 
 using namespace std;
 
-enum Genre
+enum class Genre
 {
 	ALTERNATIVE,
 	ANIME,
