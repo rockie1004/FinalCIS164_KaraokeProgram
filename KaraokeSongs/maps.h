@@ -10,7 +10,7 @@
 #include <map>
 using namespace std;
 
-	map<string, Artist> artistMap;
+	//map<string, Artist> artistMap; move this all to the Artist.h
 	string artistFileTXT = "Artists.txt";
 	fstream artistFstream;// (artistFileTXT, ios::in | ios::out);
 
