@@ -6,11 +6,12 @@
 #include "Artist.h"
 #include "Song.h"
 #include "MapManagement.h"
+#include "maps.h"
 #include <iostream>
 #include <map>
 using namespace std;
 
-	//map<string, Artist> artistMap; move this all to the Artist.h to merge all together
+	map<string, Artist> artistMap;
 	string artistFileTXT = "Artists.txt";
 	fstream artistFstream;// (artistFileTXT, ios::in | ios::out);
 
@@ -53,7 +54,11 @@ using namespace std;
 
 	};
 
-multimap<string, string> singerHistory; //map<dateAsString, songKey>> //NEEDS moved to Singer.h when created
+/////////SECONDARY Multimaps////////////////////
+/////////save only keys to file, all the map functions like find and emplace only return iterators which are not useful to save. Lookups will be needed to use the contents of these maps
+multimap<string, string> songCatalogByArtist;
+multimap<string, string> singerHistory; //map<dateAsString, songKey>> 
+
 
 
 /////functions for maps
@@ -79,9 +84,11 @@ return Song(songTitle, artistKey);
 
 //new songs must be inserted in all relevant maps
 bool addSongToCatalogs(Song newSong) {
-	if (!addObjectToMap(songMap,newSong))//.second is the bool portion of the pair this function returns (see emplace)
+	if (!addObjectToMap(songMap, newSong))//.second is the bool portion of the pair this function returns (see emplace)
 	{cout<<"Already exists in catalog, not added."; return false;}
-	addObjectToMap(songCatalogByArtist, newSong.getKey(), newSong.getArtistKey());
+	string tempArtistKey = newSong.getArtistKey();
+	//if (!addObjectToMap(songCatalogByArtist, newSong, tempArtistKey)) //should not fail, not restriction on multimap
+	//		{ cout << "Failed to add to song catalog by artist."; return false; }
 	return true;
 };
 
