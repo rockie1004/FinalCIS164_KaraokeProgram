@@ -1,3 +1,7 @@
+/////////PRIMARY Maps/////save unique objects of a class with a unique key. Maps are in the .h file of the class that the map contains. This is the official record of all objects of the class. Map will be loaded at the start of program, new objects inserted into map will be saved to file.
+/////////SECONDARY Multimaps/////////////save only keys to file, all the map functions like find and emplace only return iterators which are not useful to save. Lookups will be needed to use the contents of these maps
+/////This file contains functions that can be used with maps
+
 #pragma once
 #include "Artist.h"
 #include "Song.h"
@@ -6,16 +10,10 @@
 #include <iostream>
 #include <map>
 using namespace std;
-////////PRIMARY Map///////////////////////
-///////ENTRIES ARE UNIQUE AND FULL OBJECT MUST BE SAVED TO FILE
 
 	map<string, Artist> artistMap;
 	string artistFileTXT = "Artists.txt";
 	fstream artistFstream;// (artistFileTXT, ios::in | ios::out);
-
-	map<string, Song> songMap;
-	string songFileTXT =  "Songs.txt"; 
-	fstream songFstream;// (songFileTXT, ios::in | ios::out);
 
 	//overwrites current contents of the file
 	template<typename T>void	primaryMapToFile(map<string, T>& myMap, fstream& myFstream) 
@@ -55,24 +53,28 @@ using namespace std;
 		GoBeginningOfFile(inputFile);
 
 	};
+
 /////////SECONDARY Multimaps////////////////////
 /////////save only keys to file, all the map functions like find and emplace only return iterators which are not useful to save. Lookups will be needed to use the contents of these maps
 multimap<string, string> songCatalogByArtist;
 multimap<string, string> singerHistory; //map<dateAsString, songKey>> 
 
 
+
 /////functions for maps
-string userInputArtist();
+Artist userInputArtist();
 Song userInputSong(string );
 bool addSongToCatalogs(string );
 
 /////////functions and user menus specific to individual maps we are using (generic map functions are in MapManagement.h)/////////////////
 
-string userInputArtist() { //temporary, need to complete this 
-	//get input from user for fields
-	//Artist a = Artist(use user input to create);
-	return "dummyKey"; //change to return a.getKey();
+Artist userInputArtist() { 
+	string alphaName = "";
+	cout << "\nArtist name, alphabetical (Move \", The \" or \", A\" to the end of the artist name if applicable) :";
+	getline(cin, alphaName);
+	return Artist(alphaName);
 };
+
 Song userInputSong(string artistKey) {//temporary, need to complete this 
 	string songTitle="";
 	cout << "\nSong Title:";

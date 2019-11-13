@@ -108,7 +108,7 @@ typename	map<string, T>::iterator it = myMap.begin();//start searching from begi
 
 
 
-
+/////NEED to test 
 //include instructions to show the user for entering a useful search string.
 template <typename T> bool SelectByKey(map<string, T> myMap, string searchString, T* storeObject)
 {
@@ -129,13 +129,6 @@ template <typename T> bool SelectByKey(map<string, T> myMap, string searchString
 /////////////////////////////////////////////////////////////////
 ///////////////////////may not need this/////////////////////////
 ///////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
 //use with any ordered map that has int as the key, will return next higher int that is available to use as a new key
 //adapted from https://stackoverflow.com/questions/1660195/c-how-to-find-the-biggest-key-in-a-stdmap
 //use crbegin to get pointer to last element which will have highest key http://www.cplusplus.com/reference/map/map/crbegin/

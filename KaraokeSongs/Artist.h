@@ -48,7 +48,7 @@ public:
 	{
 		alphaName = an;
 		displayName = dn; 
-		primaryGenre = g;
+		//primaryGenre = g;
 	}
 
 	//constructor where there's only an alphabetical name (for example, Prince)
@@ -60,14 +60,14 @@ public:
 	}
 	
 	//setters/mutators
-	void setAlphaName(string an)		{ alphaName = an; }
-	void setDisplayName(string dn)		{ displayName = dn; }
-	void setGenre(Genre g)				{ primaryGenre = g; }
-
-	//accessors (getters)
-	string getAlphaName() /*const*/		{ return alphaName; }
-	string getDisplayName() /*const*/	{ return displayName; }
-	Genre getPrimaryGenre() /*const*/	{ return primaryGenre; }
+	void setAlphaName(string an);		//{ alphaName = an; }
+	void setDisplayName(string dn);	//{ displayName = dn; }
+	void setGenre(Genre g);	//{ primaryGenre = g; }
+										//
+	//accessors (getters)				//
+	string getAlphaName(); /*const*/		//{ return alphaName; }
+	string getDisplayName(); /*const*/	//{ return displayName; }
+		Genre getPrimaryGenre(); /*const*/	//{ return primaryGenre; }
 
 	virtual string display(); //from CatalogEntry.h
 	virtual string toFile(); //from CatalogEntry.h
@@ -75,6 +75,8 @@ public:
 	virtual string getKey(); //from CatalogEntry.h
 	virtual void updateKey(); //from CatalogEntry.h
 };
+#endif ARTIST_H
+
 
 //Class Implementation
 
@@ -106,4 +108,7 @@ void Artist::fromFile(std::vector<string>::iterator iter)
 	//I think this is all we need here, but lets chat, I want to make sure
 }
 
-#endif ARTIST_H
+string Artist::getKey() {
+	return alphaName;
+
+}
