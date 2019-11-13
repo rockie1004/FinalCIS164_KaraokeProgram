@@ -11,7 +11,7 @@ class Song : public CatalogEntry
 		string artistKey = "";
 
 	
-	public:
+	public:blank
 		Song() :CatalogEntry() {};
 		Song(string newTitle, string newArtistKey) :CatalogEntry()
 		{
@@ -62,3 +62,9 @@ void Song::fromFile(std::vector<string>::iterator iter) {
 	artistKey = *++iter;//assign next field
 
 }
+
+map<string, Song> songMap;
+multimap<string, string> songCatalogByArtist; //key artistKey, value songKey ==will add using addSongToCatalogs
+
+string songFileTXT = "Songs.txt";
+fstream songFstream;// (songFileTXT, ios::in | ios::out);
