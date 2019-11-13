@@ -15,54 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Artist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Band.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\CatalogEntry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\DateCalcLong.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\FileManagement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Genre.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Header.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\IndividualArtist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\MapManagement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\maps.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Song.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Singer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Songs.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Artists.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\KaraokeSongs.cpp">
+    <ClCompile Include="KaraokeSongs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Song.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Artist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Band.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DateCalcLong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Genre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IndividualArtist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="maps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogEntry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Songs.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -151,25 +151,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Artist.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Band.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\CatalogEntry.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\DateCalcLong.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\FileManagement.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Genre.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Header.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\IndividualArtist.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\MapManagement.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\maps.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Singer.h" />
-    <ClInclude Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Song.h" />
+    <ClCompile Include="KaraokeSongs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Artists.txt" />
-    <Text Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\Songs.txt" />
+    <ClInclude Include="Artist.h" />
+    <ClInclude Include="Band.h" />
+    <ClInclude Include="CatalogEntry.h" />
+    <ClInclude Include="DateCalcLong.h" />
+    <ClInclude Include="Genre.h" />
+    <ClInclude Include="IndividualArtist.h" />
+    <ClInclude Include="MapManagement.h" />
+    <ClInclude Include="maps.h" />
+    <ClInclude Include="Song.h" />
+    <ClInclude Include="FileManagement.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Mysti%27s PC\source\repos\FinalCIS164_KaraokeProgram\KaraokeSongs\KaraokeSongs.cpp" />
+    <Text Include="Songs.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

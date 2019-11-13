@@ -12,26 +12,22 @@
 void startup();
 int main()
 {
-	Artist newArtist1("Queens of the Stone Age");
-	Artist newArtist2("Rolling Stones, The", "The Rolling Stones");
-	Artist newArtist3("ABBA");
 	startup();
 	
+	string artistKey = "dummyArtist";
 
+	primaryMapFromFile(songMap, songFstream);
+	cout << "\nFor Testing, display contents of map from what was in the file on startup\n";
+	displayMap(songMap);
+
+	cout << "\nNow add some more songs (we are only collecting title, not artist, for this test).\n";
 	for (int i = 0; i < 5; i++) {
-cout<<		"\n------------------\nAdd a new Artist and Song (later will add select existing artist, function created but not tested yet.";
-		
-		Artist tempArtist = userInputArtist(); //NEED to update userInputArtist function with artist fields
-		Song tempSong = userInputSong(tempArtist.getKey());
+		Song tempSong = userInputSong(artistKey);
 		if (addSongToCatalogs(tempSong)) { cout << "Added to map\n"; }
 		else { cout << "Error\n"; };
 	}
 	cout << "Check contents of songMap:\n";
 	displayMap(songMap);
-	cout << "Check contents of artistMap:\n";
-	displayMap(artistMap);
-	cout << "Check contents of songCatalogbyArtist:\n";
-	displayMap(songCatalogByArtist);
 	cout << "Write contents of songMap to File:\n";
 	primaryMapToFile(songMap, songFstream);
 
@@ -42,17 +38,13 @@ cout<<		"\n------------------\nAdd a new Artist and Song (later will add select 
 
 
 	cout << "For Testing, display contents of map \n";
-	displayMap(artistMap);
+		displayMap(testMap);
 	//	//displayMap(songCatalogByArtist);
 
-};
+	};
 
 void startup() {
 	cout << "open song fstream: " << openFileInOut(songFstream, songFileTXT) << endl;
-	cout << "\nopen artist fstream: " << openFileInOut(artistFstream, artistFileTXT) << endl;
-	primaryMapFromFile(songMap, songFstream);
-	primaryMapFromFile(artistMap, artistFstream);
-	cout << "\nDone importing map data";
 };
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
